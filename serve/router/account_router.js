@@ -16,6 +16,7 @@ router.post('/register', (req, res) => {
     // 2.1查询是否有数据库数据冲突数据
     const selectStr = `select username from users where username = "${username}" `
     conn.query(selectStr, (err, result) => {
+        console.log('hh', result);
         if (err) return res.json({ status: 501, msg: '服务器错误' });
         // 若没有错误,则判断用户输入的用户名是否与数据库中的用户名一致
         // console.log('我是啥东西', result);// []  空数组
@@ -42,24 +43,25 @@ router.post('/login', (req, res) => {
     const selectStr = `select * from users where username = "${username}" and password="${password}"`
     conn.query(selectStr, (err, result) => {
         if (err) return res.json({ status: 501, msg: '服务器错误' })
-        console.log('王莎莎:', result);
+        // console.log('王莎莎:', result);
         // 查询是否与数据库中的字段数据匹配
         if (result.length > 0) {
             // 查找到了，说明登陆成功
             // 返回token
-            const token = jwt.sign(
+            // 字符串前加上该字符  行业规范
+            const token = 'Bearer ' + jwt.sign(
                 { name: username },
                 'gz61',  // 加密的密码，要与express-jwt中的验证密码一致
                 { expiresIn: 2 * 60 * 60 } // 过期时间，单位是秒
             )
-            // 字符串前加上该字符  行业规范
-            token += bearer
             res.json({ msg: "登陆成功", status: 200, token })
         } else {
             res.json({ msg: "登陆失败，用户名密码不对", status: 401 })
         }
     })
 })
+
+
 
 
 

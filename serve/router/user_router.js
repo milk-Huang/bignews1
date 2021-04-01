@@ -9,8 +9,9 @@ router.get('/userinfo', (req, res) => {
     // console.log('获取信息:', req.query);
     const { username } = req.query//postman在 pramas 中添加数据进行测试
     console.log(username);
+    // console.log(req.query.username);
     // 查询用户在数据库中是否存在
-    const selectStr = `select * from users where username="${username}" `
+    const selectStr = `select * from users where username="${req.query.username}" `
     conn.query(selectStr, (err, result) => {
         if (err) return res.json({ status: 501, msg: '服务器错误' })
         // 成功

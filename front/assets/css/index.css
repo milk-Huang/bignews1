@@ -1,0 +1,59 @@
+.layui-footer {
+    text-align: center;
+    font-size: 12px;
+}
+
+.iconfont {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.layui-icon {
+    margin-right: 8px;
+    margin-left: 20px;
+}
+
+.layui-body {
+    /* 隐藏滚动条 */
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.userinfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 12px;
+    /* 禁止用户选中 */
+    /* user-selectCSS中的属性控制如何选择元素中的文本。例如，它可以用于使文本无法选择 */
+    /* 如果您想为用户提供更轻松/更干净的复制粘贴体验（不要让他们无意间通过文本选择无用的东西，例如图标或图像），这将非常有用。 */
+    user-select: none;
+}
+
+.layui-side-scroll .userinfo {
+    border-bottom: 1px solid #000;
+}
+
+.layui-nav-img {
+    width: 40px;
+    height: 40px;
+}
+
+.text-avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #009668;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    /* 垂直对齐图像:中线对齐 */
+    vertical-align: middle;
+    margin-right: 10px;
+}
